@@ -73,7 +73,7 @@ export const Binary = () => {
                 <meta name="og:site_name" content="Binary" />
             </Helmet>
             <header className="returnhome">
-                <a id="returnhome" draggable="false" href="/">
+                <a id="returnhome" draggable={false} href="/">
                     <i className="uil uil-estate"></i>
                 </a>
             </header>

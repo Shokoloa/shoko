@@ -12,7 +12,7 @@ export const Projects = () => {
                 <meta name="og:site_name" content="Projects" />
             </Helmet>
             <header className="returnhome">
-                <a id="returnhome" draggable="false" href="/">
+                <a id="returnhome" draggable={false} href="/">
                     <i className="uil uil-estate"></i>
                 </a>
             </header>
