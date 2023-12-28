@@ -12,7 +12,7 @@ export const About = () => {
                 <meta name="og:site_name" content="About Me" />
             </Helmet>
             <header className="returnhome">
-                <a id="returnhome" draggable="false" href="/">
+                <a id="returnhome" draggable={false} href="/">
                     <i className="uil uil-estate"></i>
                 </a>
             </header>
@@ -24,15 +24,15 @@ export const About = () => {
                     <div className="separator" style={{ width: '50%', marginLeft: '25%' }}></div>
                     <section className="skills-lang">
                         <article className="skill">
-                            <img src="../../src/assets/images/icons/flag_fr.png" draggable="false" alt="" />
+                            <img src={'../../src/assets/images/icons/flag_fr.png'} draggable={false} alt="" />
                             <p>French<br /><span>Native</span></p>
                         </article>
                         <article className="skill">
-                            <img src="../../src/assets/images/icons/flag_br.png" draggable="false" alt="" />
+                            <img src={'../../src/assets/images/icons/flag_br.png'} draggable={false} alt="" />
                             <p>English<br /><span>Level B2</span></p>
                         </article>
                         <article className="skill">
-                            <img src="../../src/assets/images/icons/flag_sp.png" draggable="false" alt="" />
+                            <img src={'../../src/assets/images/icons/flag_sp.png'} draggable={false} alt="" />
                             <p>Spanish<br /><span>Beginner</span></p>
                         </article>
                     </section>
