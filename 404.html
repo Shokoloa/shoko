@@ -12,8 +12,6 @@
     <meta name="theme-color" content="#e5989b">
     <meta name="description"
         content="Web architect with a passion for user experience. Explore my frontend development portfolio, highlighting elegant interfaces, fluid interactions, and modern web technologies.">
-    <link href="app/css/main.css" rel="stylesheet" type="text/css">
-    <link href="app/css/medias.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="app/images/pp.png">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <script src="https://kit.fontawesome.com/6e61d25d8a.js" crossorigin="anonymous"></script>
@@ -39,21 +37,128 @@
     <meta name="twitter:image" content="https://i.ibb.co/z65nrvH/pp.png">
 
     <style>
-        html,
-        body {
-            height: 100%;
+        @font-face {
+            src: url(./app/fonts/Poppins.ttf);
+            font-family: poppins;
         }
 
-        body {
+        @font-face {
+            src: url(./app/fonts/Inter.ttf);
+            font-family: inter;
+        }
+
+        :root {
+            --primary-color: #e5989b;
+            --text-white: #fff;
+            --text-grey: #d8d8d8;
+            --light-black: #15151a;
+            --light-blue: #4182aa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: #26292B;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: radial-gradient(ellipse at center, #023e8a 0%, #13344d 100%);
+            border-radius: 4px;
+        }
+
+        .row {
             display: flex;
             align-items: center;
-            justify-content: left;
-            overflow: hidden;
+            flex-direction: row;
+        }
+
+        svg {
+            width: 100%;
+            visibility: hidden;
+            margin: 0 50vh 0 -20px;
+        }
+
+        .cat-container h1 {
+            font-size: 30px;
+            font-family: poppins;
+            color: var(--text-white);
+        }
+
+        .cat-container p {
+            font-size: 15px;
+            font-family: inter;
+            color: var(--text-grey);
+        }
+
+        .cat-container button {
+            background: transparent;
+            margin: 20px 20px 0 0;
+            padding: 5px 15px;
+            border: 2px solid #8a817c;
+            border-radius: 8px;
+            color: var(--text-white);
+            font-size: 15px;
+            font-family: poppins;
+            transition: all 500ms ease;
+        }
+
+        .cat-container button:hover {
+            cursor: pointer;
+            background-color: #023e8a;
+            border: 2px solid #023e8a;
+        }
+
+        @media screen and (max-width: 767px) {
+            .row {
+                flex-direction: column;
+            }
+
+            svg {
+                margin: 0 0 0 -20px;
+            }
+        }
+
+        .bg {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+            z-index: -1000;
+        }
+
+        .bg img {
+            object-fit: cover;
+            width: 100%;
+            z-index: -1000;
+        }
+
+        .transition {
+            transition-duration: 1s;
+        }
+
+        .text:hover {
+            cursor: default;
+            -moz-user-select: none;
+            /* Firefox */
+            -webkit-user-select: none;
+            /* Chrome, Safari, Opera since version 15 */
+            -ms-user-select: none;
+            /* Internet explorer since version 10 & Edge */
+            user-select: none;
+            /* Standart property */
         }
     </style>
 </head>
 
-<body>
+<body class="text transition">
     <div class="bg">
         <img src="https://desktop.github.com/images/star-bg.svg" draggable="false" alt="">
     </div>
@@ -227,12 +332,6 @@
                                 </g>
                             </g>
                             <g id="spaceman" clip-path="url(cordClip)">
-                                <path id="cord" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-miterlimit="10"
-                                    d="
-                  M273.813,410.969c0,0-54.527,39.501-115.34,38.218c-2.28-0.048-4.926-0.241-7.841-0.548
-                  c-68.038-7.178-134.288-43.963-167.33-103.87c-0.908-1.646-1.793-3.3-2.654-4.964c-18.395-35.511-37.259-83.385-32.075-118.817" />
-
                                 <path id="backpack" fill="#FFFFFF" stroke="#0E0620" stroke-width="3"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
                   M338.164,454.689l-64.726-17.353c-11.086-2.972-17.664-14.369-14.692-25.455l15.694-58.537
@@ -334,8 +433,8 @@
                     </svg>
                 </div>
                 <div>
-                    <h1>Oups ! Vous vous êtes perdu.</h1>
-                    <p>La page <code id="url"></code> n'existe pas. Comment êtes-vous arrivé ici est un mystère.</p>
+                    <h1>Oops ! You got lost.</h1>
+                    <p>Page <code id="url"></code> does not exist. How you got here is a mystery.</p>
                     <button onclick="window.location.href = '/'">Retourner à l'accueil</button>
                 </div>
             </div>
