@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Shoko | Binary</title>
+    <title>Shoko | Morse</title>
     <meta property="og:type" content="website">
     <meta name="title" content="Shoko">
     <meta property="og:title" content="Shoko">
-    <meta name="og:site_name" content="Binary">
+    <meta name="og:site_name" content="Morse">
     <meta name="description" content="16 years old web programmer learning game developement">
     <meta property="og:description" content="16 years old web programmer learning game developement">
     <meta name="og:image" content="https://i.ibb.co/z65nrvH/pp.png">
@@ -70,6 +70,16 @@
         textarea::placeholder {
             color: var(--text-grey);
             font-weight: 400;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            font-family: inherit;
         }
 
         .copy {
@@ -197,13 +207,13 @@
     </header>
 
     <main class="slug">
-        <h1>Binary</h1>
-        <p>Binary Converter</p>
+        <h1>Morse</h1>
+        <p>Morse Converter</p>
         <div class="separator"></div>
         <article class="slug-desc">
-            <h1>Text to Binary</h1>
+            <h1>Text to Morse</h1>
             <div class="auto-expand">
-                <textarea class="textare-auto" id="text-binary" placeholder="Place text here"></textarea>
+                <textarea class="textare-auto" id="text-input" placeholder="Place text here"></textarea>
                 <button class="copy copy-text">
                     <span data-text-end="Copied!" data-text-initial="Copy to clipboard" class="tooltip"></span>
                     <span>
@@ -230,10 +240,10 @@
             </div>
             <div class="separator"></div>
 
-            <h1>Binary to Text</h1>
+            <h1>Morse to Text</h1>
             <div class="auto-expand">
-                <textarea class="textare-auto" id="binary-text" placeholder="Place binary here"></textarea>
-                <button class="copy copy-binary">
+                <textarea class="textare-auto" id="morse-input" placeholder="Place morse here"></textarea>
+                <button class="copy copy-morse">
                     <span data-text-end="Copied!" data-text-initial="Copy to clipboard" class="tooltip"></span>
                     <span>
                         <svg xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 6.35 6.35"
@@ -261,39 +271,67 @@
     </main>
 </body>
 <script>
-    const textBinary = document.getElementById('text-binary');
-    const binaryText = document.getElementById('binary-text');
+    const textInput = document.getElementById('text-input');
+    const morseInput = document.getElementById('morse-input');
 
-    textBinary.addEventListener('input', () => {
-        const textInput = textBinary.value;
+    textInput.addEventListener('input', () => {
+        const inputText = textInput.value.toUpperCase();
 
-        let binary = '';
-        for (let i = 0; i < textInput.length; i++) {
-            const charCode = textInput.charCodeAt(i).toString(2);
-            binary += '0'.repeat(8 - charCode.length) + charCode + ' ';
+        const morseMap = {
+            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
+            'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
+            'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
+            'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
+            'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
+            'Z': '--..', '0': '-----', '1': '.----', '2': '..---', '3': '...--',
+            '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..',
+            '9': '----.', ' ': '/'
+        };
+
+        let morseCode = '';
+
+        for (let i = 0; i < inputText.length; i++) {
+            const char = inputText[i];
+
+            if (morseMap[char]) {
+                morseCode += morseMap[char] + ' ';
+            } else { }
         }
 
-        binaryText.value = binary;
+        morseInput.value = morseCode;
     });
 
-    binaryText.addEventListener('input', () => {
-        const binaryInput = binaryText.value;
+    const morseToTextMap = {
+        '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E',
+        '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J',
+        '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O',
+        '.--.': 'P', '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T',
+        '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y',
+        '--..': 'Z', '-----': '0', '.----': '1', '..---': '2', '...--': '3',
+        '....-': '4', '.....': '5', '-....': '6', '--...': '7', '---..': '8',
+        '----.': '9', '/': ' ', '': ''
+    };
 
-        const binaryArray = binaryInput.split(' ');
-        let text = '';
-        for (let i = 0; i < binaryArray.length; i++) {
-            const binaryChar = binaryArray[i];
-            const charCode = parseInt(binaryChar, 2);
-            text += String.fromCharCode(charCode);
+    morseInput.addEventListener('input', () => {
+        const inputMorse = morseInput.value;
+        const morseArray = inputMorse.split(' ');
+        let translatedText = '';
+
+        for (let i = 0; i < morseArray.length; i++) {
+            const morseChar = morseArray[i];
+
+            if (morseToTextMap[morseChar]) {
+                translatedText += morseToTextMap[morseChar];
+            } else { }
         }
 
-        textBinary.value = text.replace(/\s/g, "");
+        textInput.value = translatedText.toLowerCase();
     });
 
-    const copybinary = document.querySelector('.copy-binary');
+    const copymorse = document.querySelector('.copy-morse');
 
-    copybinary.addEventListener("click", function () {
-        binaryText.select();
+    copymorse.addEventListener("click", function () {
+        morseInput.select();
         document.execCommand("copy");
         window.getSelection().removeAllRanges();
     });
@@ -301,7 +339,7 @@
     const copytext = document.querySelector('.copy-text');
 
     copytext.addEventListener("click", function () {
-        textBinary.select();
+        textInput.select();
         document.execCommand("copy");
         window.getSelection().removeAllRanges();
     });
