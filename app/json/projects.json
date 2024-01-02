@@ -1,1 +1,65 @@
-
+[
+    {
+        "name": "Arvalia",
+        "class": "best",
+        "desc": "Game Development",
+        "date": "Oct 11, 2023",
+        "url": "https://arvalia.vercel.app",
+        "root": "app/images/logos/arvalia.png",
+        "iconClass": "icon"
+    },
+    {
+        "name": "Github",
+        "class": "best",
+        "desc": "Coding tips",
+        "date": "Soon",
+        "url": "",
+        "root": "app/images/logos/github.png",
+        "iconClass": "realicon"
+    },
+    {
+        "name": "Saphira",
+        "class": "other",
+        "desc": "Discord bot",
+        "date": "April 27, 2022",
+        "url": "https://saphira.vercel.app",
+        "root": "app/images/logos/saphira.png",
+        "iconClass": "icon"
+    },
+    {
+        "name": "Morse",
+        "class": "other",
+        "desc": "Morse Converter",
+        "date": "Sep 30, 2023",
+        "url": "projects/morse",
+        "root": "app/images/logos/morse.png",
+        "iconClass": "realicon"
+    },
+    {
+        "name": "Binary",
+        "class": "other",
+        "desc": "Binary Converter",
+        "date": "Sep 30, 2022",
+        "url": "projects/binary",
+        "root": "app/images/logos/binary.png",
+        "iconClass": "realicon"
+    },
+    {
+        "name": "Falnix",
+        "class": "best",
+        "desc": "French gaming Youtuber",
+        "date": "Sep 22, 2019",
+        "url": "https://falnix.vercel.app",
+        "root": "app/images/logos/falnix.png",
+        "iconClass": "icon"
+    },
+    {
+        "name": "VCPL",
+        "class": "other",
+        "desc": "French VTT Club",
+        "date": "Dec 21, 2023",
+        "url": "https://vcpl.vercel.app",
+        "root": "app/images/logos/vcpl.png",
+        "iconClass": "realicon"
+    }
+]
