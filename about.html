@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shoko | About Me</title>
+    <meta property="og:type" content="website">
+    <meta name="title" content="Shoko">
+    <meta property="og:title" content="Shoko">
+    <meta name="og:site_name" content="About Me">
+    <meta name="description" content="16 years old web programmer learning game developement">
+    <meta property="og:description" content="16 years old web programmer learning game developement">
+    <meta name="og:image" content="https://i.ibb.co/z65nrvH/pp.png">
+    <meta name="theme-color" content="#e5989b">
+
+    <meta name="twitter:title" content="Shoko">
+    <meta name="twitter:description" content="16 years old web programmer learning game developement">
+    <meta name="twitter:image" content="https://i.ibb.co/z65nrvH/pp.png">
+
+    <link href="app/css/main.css" rel="stylesheet" type="text/css">
+    <link href="app/css/medias.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="app/images/pp.png">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="https://kit.fontawesome.com/6e61d25d8a.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="text transition">
+    <div class="bg">
+        <img src="https://desktop.github.com/images/star-bg.svg" draggable="false" alt="">
+    </div>
+
+    <header class="returnhome">
+        <a id="returnhome" draggable="false" href="/">
+            <i class="uil uil-estate"></i>
+        </a>
+    </header>
+
+    <main class="about">
+        <section class="skills">
+            <h1>Skills</h1>
+            <section id="skills-to" class="skills-list"></section>
+            <div class="separator" style="width: 50%; margin-left: 25%;"></div>
+            <section class="skills-lang">
+                <article class="skill">
+                    <img src="app/images/icons/flag_fr.png" draggable="false" alt="">
+                    <p>French<br><span>Native</span></p>
+                </article>
+                <article class="skill">
+                    <img src="app/images/icons/flag_br.png" draggable="false" alt="">
+                    <p>English<br><span>Level B2</span></p>
+                </article>
+                <article class="skill">
+                    <img src="app/images/icons/flag_sp.png" draggable="false" alt="">
+                    <p>Spanish<br><span>Beginner</span></p>
+                </article>
+            </section>
+        </section>
+        <section class="contact">
+            <button onclick="window.href = 'contact'">Contact me</button>
+        </section>
+    </main>
+</body>
+<script>
+    const panel = document.getElementById("skills-to");
+
+    fetch('app/json/skills.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load JSON');
+            }
+            return response.json();
+        })
+        .then(skills => {
+            for (let i = 0; i < skills.length; i++) {
+                const skill = skills[i];
+                const skillElement = document.createElement("article");
+                skillElement.classList.add("skill");
+                skillElement.innerHTML = `<img src="app/images/icons/${skill.img}.png" draggable="false" alt="">
+                                  <p>${skill.name}<br><span>${skill.level}</span></p>`;
+
+                panel.appendChild(skillElement)
+            }
+        });
+</script>
+<script src="app/js/console.js" defer></script>
+
+</html>

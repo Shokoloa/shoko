@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shoko | About Me</title>
+    <meta property="og:type" content="website">
+    <meta name="title" content="Shoko">
+    <meta property="og:title" content="Shoko">
+    <meta name="og:site_name" content="About Me">
+    <meta name="description" content="16 years old web programmer learning game developement">
+    <meta property="og:description" content="16 years old web programmer learning game developement">
+    <meta name="og:image" content="https://i.ibb.co/z65nrvH/pp.png">
+    <meta name="theme-color" content="#e5989b">
+
+    <meta name="twitter:title" content="Shoko">
+    <meta name="twitter:description" content="16 years old web programmer learning game developement">
+    <meta name="twitter:image" content="https://i.ibb.co/z65nrvH/pp.png">
+
+    <link href="app/css/main.css" rel="stylesheet" type="text/css">
+    <link href="app/css/medias.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="app/images/pp.png">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="https://kit.fontawesome.com/6e61d25d8a.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="text transition">
+    <div class="bg">
+        <img src="https://desktop.github.com/images/star-bg.svg" draggable="false" alt="">
+    </div>
+
+    <main class="contact-form">
+        <section class="contact-form-right">
+            <h1>Contact</h1>
+            <section class="form">
+                <article class="input">
+                    <label>Name<em class="opt">(Optional)</em></label>
+                    <input type="text" id="name" maxlength="25" placeholder="Enter your name here" autocomplete="off">
+                </article>
+                <article class="input">
+                    <label>Email<span>*</span></label>
+                    <input type="email" id="email" maxlength="30" placeholder="Enter your email address here"
+                        autocomplete="off" oninput="verifEmail()" required>
+                    <p class="error-message" id="emailErrorMessage">Enter a valid email address</p>
+                </article>
+                <article class="input">
+                    <label>Content<span>*</span>
+                        <p class="character-count" id="contentLength">0/500 characters</p>
+                    </label>
+                    <textarea id="content" maxlength="500" autocomplete="off"
+                        placeholder="Why you want to contact us? Please describe your reason." oninput="verifContent()"
+                        required></textarea>
+                    <p class="error-message" id="contentErrorMessage">Content must be at least 10 characters</p>
+                </article>
+                <article class="input">
+                    <label>Captcha<span>*</span><em class="captcha">What day comes after July 14</em></label>
+                    <input type="text" id="captcha" maxlength="15" autocomplete="off" required>
+                    <p class="error-message" id="captchaErrorMessage">Captcha is not valid</p>
+                </article>
+                <article class="return">
+                    <div class="links">
+                        <a href="/"><i class="fa-solid fa-house"></i></a>
+                        <a href="https://discord.gg/zADqwgP8zG" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                    </div>
+                    <button class="button success" onclick="handleSubmit()" id="submit">Submit</button>
+                </article>
+            </section>
+        </section>
+    </main>
+</body>
+<script src="app/js/console.js" defer></script>
+<script>
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const contentInput = document.getElementById('content');
+    const captchaInput = document.getElementById('captcha');
+
+    const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const URL = `https://discord.com/api/webhooks/1189507715182108723/${atob('U2dVT0ZLMFZIc19fc1BlM09ILWFMSTFORUUxWGl1MWFaN2VvVUR6cFI4TXFuVW43TnQ2cnJCaEluRGFiMkhXLUhaNng=')}`;
+
+    function verifEmail() {
+        const isValid = EMAIL_REGEX.test(emailInput.value);
+        toggleValidation(emailInput, isValid, 'emailErrorMessage');
+        return isValid;
+    }
+
+    function verifContent() {
+        document.getElementById('contentLength').innerText = `${contentInput.value.length}/500`;
+
+        const isValid = contentInput.value.length >= 10;
+        toggleValidation(contentInput, isValid, 'contentErrorMessage');
+        return isValid;
+    }
+
+    function verifCaptcha() {
+        const isValid = captchaInput.value === '15';
+        toggleValidation(captchaInput, isValid, 'captchaErrorMessage');
+        return isValid;
+    }
+
+    function toggleValidation(inputElement, isValid, errorMessageId) {
+        if (isValid) {
+            inputElement.classList.remove('invalid');
+            document.getElementById(errorMessageId).style.display = 'none';
+        } else {
+            inputElement.classList.add('invalid');
+            document.getElementById(errorMessageId).style.display = 'flex';
+        }
+    }
+
+    function handleSubmit() {
+        if (verifEmail() && verifContent() && verifCaptcha()) {
+            document.getElementById('submit').classList.add('success');
+            document.getElementById('submit').classList.remove('error');
+            const data_name = nameInput.value.length >= 1 ? nameInput.value : 'Anonyme';
+            const data_email = emailInput.value;
+            const data_content = contentInput.value;
+
+            const message = {
+                content: `Email: ${data_email}\nContent:\n${data_content}`,
+                username: data_name,
+            };
+
+            fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(message)
+            })
+        } else {
+            document.getElementById('submit').classList.add('error');
+            document.getElementById('submit').classList.remove('success');
+        }
+    }
+</script>
+<script>
+    var animateButton = function (e) {
+
+        e.preventDefault;
+        // Reset animation
+        e.target.classList.remove('animate');
+
+        e.target.classList.add('animate');
+
+        e.target.classList.add('animate');
+        setTimeout(function () {
+            e.target.classList.remove('animate');
+        }, 10000);
+    };
+
+    var classname = document.getElementsByClassName("button");
+
+    for (var i = 0; i < classname.length; i++) {
+        classname[i].addEventListener('click', animateButton, false);
+    }
+</script>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shoko | Projects</title>
+    <meta property="og:type" content="website">
+    <meta name="title" content="Shoko">
+    <meta property="og:title" content="Shoko">
+    <meta name="og:site_name" content="Projects">
+    <meta name="description" content="16 years old web programmer learning game developement">
+    <meta property="og:description" content="16 years old web programmer learning game developement">
+    <meta name="og:image" content="https://i.ibb.co/z65nrvH/pp.png">
+    <meta name="theme-color" content="#e5989b">
+
+    <meta name="twitter:title" content="Shoko">
+    <meta name="twitter:description" content="16 years old web programmer learning game developement">
+    <meta name="twitter:image" content="https://i.ibb.co/z65nrvH/pp.png">
+
+    <link href="app/css/main.css" rel="stylesheet" type="text/css">
+    <link href="app/css/medias.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="app/images/pp.png">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="https://kit.fontawesome.com/6e61d25d8a.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="text transition">
+    <div class="bg">
+        <img src="https://desktop.github.com/images/star-bg.svg" draggable="false" alt="">
+    </div>
+
+    <header class="returnhome">
+        <a id="returnhome" draggable="false" href="/">
+            <i class="uil uil-estate"></i>
+        </a>
+    </header>
+
+    <main class="projects">
+        <header class="projecttitle">
+            <h1>Projects</h1>
+            <p>Some of the projects are from work and some are on my own time</p>
+        </header>
+        <div class="separator" style="margin-bottom: 3vh;"></div>
+
+        <section class="project-card-container">
+            <h1>Best Projects</h1>
+            <section id="best-panel" class="project-card_line"></section>
+            <div class="separator" style="width: 50%;"></div>
+
+            <h1>Other Projects</h1>
+            <section id="other-panel" class="project-card_line gr-4"></section>
+        </section>
+    </main>
+</body>
+
+<script>
+    const best = document.getElementById("best-panel");
+    const other = document.getElementById("other-panel");
+
+    fetch('app/json/projects.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load JSON');
+            }
+            return response.json();
+        })
+        .then(projects => {
+            for (let i = 0; i < projects.length; i++) {
+                const project = projects[i];
+                const projectElement = document.createElement("article");
+                projectElement.classList.add("project-card");
+                projectElement.innerHTML = `<span class="${project.iconClass}">
+                                                <img src="${project.root}" draggable="false" alt="">
+                                            </span>
+                                            <h4>${project.name}</h4>
+                                            <p class="desc">${project.desc}</p>
+                                            <p class="date">${project.date}</p>
+                                            <div class="shine"></div>
+                                            <div class="background">
+                                                <div class="tiles">
+                                                    <div class="tile tile-1"></div>
+                                                    <div class="tile tile-2"></div>
+                                                    <div class="tile tile-3"></div>
+                                                    <div class="tile tile-4"></div>
+                                                    <div class="tile tile-5"></div>
+                                                    <div class="tile tile-6"></div>
+                                                    <div class="tile tile-7"></div>
+                                                    <div class="tile tile-8"></div>
+                                                    <div class="tile tile-9"></div>
+                                                    <div class="tile tile-10"></div>
+                                                </div>
+                                                <div class="line line-1"></div>
+                                                <div class="line line-2"></div>
+                                                <div class="line line-3"></div>
+                                            </div>`;
+
+                if (project.url) {
+                    projectElement.addEventListener("click", function () {
+                        window.location.href = project.url;
+                    })
+                }
+
+                if (project.class === "best") {
+                    best.appendChild(projectElement);
+                } else if (project.class === "other") {
+                    other.appendChild(projectElement);
+                };
+            }
+        });
+</script>
+<script src="app/js/console.js" defer></script>
+
+</html>
