@@ -2,7 +2,7 @@
     {
         "name": "Arvalia",
         "class": "best",
-        "desc": "Game Development",
+        "desc": "RPG Fantasy Game",
         "date": "Oct 11, 2023",
         "url": "https://arvalia.vercel.app",
         "root": "app/images/logos/arvalia.png",
@@ -11,7 +11,7 @@
     {
         "name": "Github",
         "class": "best",
-        "desc": "Coding tips",
+        "desc": "Coding Tips",
         "date": "Soon",
         "url": "",
         "root": "app/images/logos/github.png",
@@ -20,7 +20,7 @@
     {
         "name": "Saphira",
         "class": "other",
-        "desc": "Discord bot",
+        "desc": "Discord Bot",
         "date": "April 27, 2022",
         "url": "https://saphira.vercel.app",
         "root": "app/images/logos/saphira.png",
@@ -47,7 +47,7 @@
     {
         "name": "Falnix",
         "class": "best",
-        "desc": "French gaming Youtuber",
+        "desc": "Gaming Youtuber",
         "date": "Sep 22, 2019",
         "url": "https://falnix.vercel.app",
         "root": "app/images/logos/falnix.png",
@@ -56,7 +56,7 @@
     {
         "name": "VCPL",
         "class": "other",
-        "desc": "French VTT Club",
+        "desc": "VTT Club",
         "date": "Dec 21, 2023",
         "url": "https://vcpl.vercel.app",
         "root": "app/images/logos/vcpl.png",
