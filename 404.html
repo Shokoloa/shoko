@@ -72,6 +72,38 @@
             border-radius: 4px;
         }
 
+        .bg {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+            z-index: -1000;
+        }
+
+        .bg img {
+            object-fit: cover;
+            width: 100%;
+            z-index: -1000;
+        }
+
+        .transition {
+            transition-duration: 1s;
+        }
+
+        .text:hover {
+            cursor: default;
+            -moz-user-select: none;
+            /* Firefox */
+            -webkit-user-select: none;
+            /* Chrome, Safari, Opera since version 15 */
+            -ms-user-select: none;
+            /* Internet explorer since version 10 & Edge */
+            user-select: none;
+            /* Standart property */
+        }
+
         .row {
             display: flex;
             align-items: center;
@@ -115,45 +147,33 @@
         }
 
         @media screen and (max-width: 767px) {
+            .bg img {
+                all: unset;
+            }
+
             .row {
                 flex-direction: column;
             }
 
             svg {
-                margin: 0 0 0 -20px;
+                margin: 10vh 0 0 0;
             }
-        }
 
-        .bg {
-            width: 100vw;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
-            z-index: -1000;
-        }
+            .cat-container {
+                margin: 20px 20px 0 20px;
+            }
 
-        .bg img {
-            object-fit: cover;
-            width: 100%;
-            z-index: -1000;
-        }
+            .cat-container h1 {
+                font-size: 20px;
+            }
 
-        .transition {
-            transition-duration: 1s;
-        }
+            .cat-container p {
+                font-size: 12px;
+            }
 
-        .text:hover {
-            cursor: default;
-            -moz-user-select: none;
-            /* Firefox */
-            -webkit-user-select: none;
-            /* Chrome, Safari, Opera since version 15 */
-            -ms-user-select: none;
-            /* Internet explorer since version 10 & Edge */
-            user-select: none;
-            /* Standart property */
+            .cat-container button {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -435,7 +455,7 @@
                 <div>
                     <h1>Oops ! You got lost.</h1>
                     <p>Page <code id="url"></code> does not exist. How you got here is a mystery.</p>
-                    <button onclick="window.location.href = '/'">Retourner à l'accueil</button>
+                    <button onclick="window.location.href = '/'">Return home</button>
                 </div>
             </div>
         </div>

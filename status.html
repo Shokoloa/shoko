@@ -29,6 +29,7 @@
     <meta property="og:description"
         content="Web architect with a passion for user experience. Explore my frontend development portfolio, highlighting elegant interfaces, fluid interactions, and modern web technologies.">
     <meta name="og:image" content="https://i.ibb.co/z65nrvH/pp.png">
+    <meta name="og:site_name" content="Status of Shokoloa's Websites">
 
     <!-- Twitter -->
     <meta name="twitter:title" content="Shokoloa">
@@ -39,50 +40,61 @@
 
 <body class="text transition home">
     <div class="bg">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
         <img src="https://desktop.github.com/images/star-bg.svg" draggable="false" alt="">
     </div>
 
-    <section class="index">
-        <nav class="customnav">
-            <ul>
-                <li class="navlink" onclick="window.location.href = 'projects'">Projects</li>
-                <li class="navlink" onclick="window.location.href = 'about'">About</li>
-                <li class="navlink" onclick="window.location.href = 'status'">Status</li>
-            </ul>
-        </nav>
-        <article class="hero-wrapper">
-            <article class="hero">
-                <h1 class="animatedtitle">Shokoloa</h1>
-                <h1 class="animatedtitle">Shokoloa</h1>
-
-                <div class="container">
-                    <div class="box">
-                        <div class="title">
-                            <span class="block"></span>
-                            <h2>Web Developer</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <section class="socials">
-                    <div class="social-link">
-                        <a onclick="window.open('https://github.com/shokoloa')"><i class="uil uil-github-alt"></i></a>
-                    </div>
-                    <div class="social-link">
-                        <a onclick="window.open('https://www.instagram.com/shokoloa')"><i
-                                class="fa-brands fa-instagram"></i></a>
-                    </div>
-                    <div class="social-link">
-                        <a onclick="window.open('https://discord.gg/zADqwgP8zG')"><i
-                                class="fa-brands fa-discord"></i></a>
-                    </div>
-                </section>
-            </article>
+    <main class="status">
+        <h1>Shokoloa <span>Status</span> <i class="fa-solid fa-signal"></i></h1>
+        <article class="legend">
+            <div class="dot online"></div>
+            <span>Online</span>
+            <div class="dot minor"></div>
+            <span>Minor Outage</span>
+            <div class="dot offline"></div>
+            <span>Offline</span>
+            <div class="dot maintenance"></div>
+            <span>In Maintenance</span>
         </article>
-    </section>
+        <section class="infra">
+            <h6>Infrastructure Status</h6>
+            <section class="infra-items">
+                <article class="infra-item online">
+                    <span>API</span>
+                </article>
+                <article class="infra-item online">
+                    <span>DataBase</span>
+                </article>
+                <article class="infra-item online">
+                    <span>Github</span>
+                </article>
+                <article class="infra-item online">
+                    <span>Vercel</span>
+                </article>
+            </section>
+        </section>
+        <section class="websites">
+            <h6>Websites Status</h6>
+            <section class="webs">
+                <article class="web online">
+                    <span>Arvalia</span>
+                </article>
+                <article class="web maintenance">
+                    <span>Falnix</span>
+                </article>
+                <article class="web maintenance">
+                    <span>Saphira</span>
+                </article>
+                <article class="web minor">
+                    <span>VCPL</span>
+                </article>
+            </section>
+        </section>
+
+        <section class="rooting">
+            <button onclick="window.location.href = '/'"><i class="fa-solid fa-house"></i></button>
+            <button onclick="window.open('https://discord.gg/zADqwgP8zG')"><i class="fa-brands fa-discord"></i></button>
+        </section>
+    </main>
 
     <canvas id="canvas">This browser does not support canvas.</canvas>
 </body>
