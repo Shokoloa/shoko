@@ -15,7 +15,13 @@
 
     .bg img {
         all: unset;
+    }
 
+    .separator {
+        width: 100%;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.2);
+        margin: 10px 0 10px 0;
     }
 
     .returnhome {
@@ -52,6 +58,12 @@
         margin: 0 0 30px 0;
     }
 
+    .project-card .icon img,
+    .project-card .realicon img {
+        width: 34px;
+        height: 34px;
+    }
+
     .project-card_content {
         padding: 10px 0 0 10px;
     }
@@ -69,7 +81,26 @@
         font-size: 11px;
     }
 
-    /*about*/
+    .slug-desc {
+        z-index: 999;
+        margin-top: 5vh;
+        width: auto;
+        margin-bottom: 10vh;
+    }
+
+    .auto-expand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 0 0;
+    }
+
+    .textare-auto {
+        width: 250px;
+    }
+
+    /* About */
 
     .about {
         margin-bottom: 50px;
@@ -81,14 +112,68 @@
     }
 
     .skill {
-        width: 170px;
+        width: 140px;
         padding: 7px;
-        background: radial-gradient(ellipse at bottom, #1a2a2e 0%, #172e3f 100%);
         margin: 7px;
-        border-radius: 15px;
         font-size: 16px;
         display: flex;
         align-items: center;
         flex-direction: row;
+    }
+
+    .skill img {
+        margin: 0 5px 0 0;
+        width: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.8s ease;
+    }
+
+    /* Status */
+
+    .status {
+        margin: 10vh 10px 10vh 10px;
+    }
+
+    /* Contact */
+
+    .form .input label .opt {
+        font-size: 8px;
+    }
+
+    .form .input label {
+        font-size: 11px;
+    }
+
+    .form .input input,
+    .form .input textarea {
+        font-size: 11px;
+    }
+
+    .form .input #name {
+        width: 200px;
+    }
+
+    .form .input #email {
+        width: 220px;
+    }
+
+    .form .input #captcha {
+        width: 100px;
+    }
+
+    .form .input #content {
+        width: 300px;
+        min-height: 250px;
+    }
+
+    .form .input .error-message {
+        font-size: 11px;
+    }
+
+    .form .input .character-count,
+    .form .input .captcha {
+        font-size: 8px;
     }
 }
